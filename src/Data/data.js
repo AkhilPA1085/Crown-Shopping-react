@@ -1,0 +1,45 @@
+export const categories = [
+    {
+        id:1,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'women'
+    },
+    {
+        id:2,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'men'
+    },
+    {
+        id:3,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'children'
+    },
+    {
+        id:4,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'fashion'
+    },
+]
+
+export const products =[
+    {
+        id:1,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'shirt'
+    },
+    {
+        id:2,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'t-shirt'
+    },
+    {
+        id:3,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'shoe'
+    },
+    {
+        id:4,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhHSfHUTeXVsOppMMt6CUVY7i164xLVte6w&usqp=CAU',
+        title:'saree'
+    },
+]

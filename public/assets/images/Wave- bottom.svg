@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="100" viewBox="0 0 1920 100">
+  <defs>
+    <clipPath id="clip-Wave-_bottom">
+      <rect width="1920" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="Wave-_bottom" data-name="Wave- bottom" clip-path="url(#clip-Wave-_bottom)">
+    <rect width="1920" height="100" fill="#fff"/>
+    <path id="Path_685" data-name="Path 685" d="M2700.529,39.547c-70.318-.238-154.369-6.879-235.877-3.035-101.786,4.8-198.512,52.44-338.978,52.44-163.137,0-247.213-64.914-448.058-47.107-120.307,10.671-175.162-20.372-319.955-20.372-119.106,0-161.89,31.957-317.616,31.957-158.81,0-160.368-24.091-303.607-24.091-147.385,0-126.881,95.169-242.875,95.169-107.43,0-117.035-94.76-249.89-94.76C53.147,29.748,0,0,0,0H2907.31S2848.977,40.049,2700.529,39.547Z" transform="translate(-810.937 0)" fill="#f5f8fa"/>
+  </g>
+</svg>
