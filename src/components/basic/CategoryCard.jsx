@@ -60,7 +60,7 @@ function CategoryCard({category}) {
                 </StyledCardContent>
 
                 <StyledCardActions>
-                    <StyledButton value='shop now'/>
+                    <StyledButton>shop now</StyledButton>
                 </StyledCardActions>
             </StyledContentContainer>    
         </StyledCard>

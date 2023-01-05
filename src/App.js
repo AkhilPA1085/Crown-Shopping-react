@@ -9,7 +9,7 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import SingleProduct from "./pages/SingleProduct";
 import { GlobalStyle } from "./styles/GlobalStyle";
-import SignIn from "./pages/SignIn";
+import Authentication from "./pages/Authentication";
 
 function App() {
   const theme = {
@@ -29,7 +29,7 @@ function App() {
           <Route path="/" element={<Header/>}>
             <Route index element={<Home/>}/>
             <Route path="shop" element={<Shop/>}/>
-            <Route path="sign-in" element={<SignIn/>}/>
+            <Route path="auth" element={<Authentication/>}/>
             <Route path="singleproduct/:id" element={<SingleProduct/>}/>
             <Route path="cart" element={<Cart/>}/>
             <Route path="contact" element={<Contact/>}/>

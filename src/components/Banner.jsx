@@ -6,7 +6,7 @@ import { Autoplay, EffectFade, Pagination } from 'swiper';
 
 import { Container, Grid } from '@mui/material'
 import styled from 'styled-components'
-import StyledButton from './basic/StyledButton';
+import StyledButton,{BUTTON_TYPES} from './basic/StyledButton';
 
 const StyledBackground = styled.img`
     position: relative;
@@ -75,7 +75,7 @@ function Banner() {
                 <StyledGridContainer container>
                   <Grid item xs={12} md={6}>
                       <StyledHeading>Welcome to Crown Shopping</StyledHeading>
-                      <StyledButton value='Shop now'/>
+                      <StyledButton> Shop now</StyledButton>
                   </Grid>
                   <Grid item xs={12} md={6}>
                       <StyledBannerImage src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-review-2763605-2307102.png" alt="" />
@@ -89,10 +89,10 @@ function Banner() {
                 <StyledGridContainer container>
                   <Grid item xs={12} md={6}>
                       <StyledHeading>Welcome to Crown Shopping</StyledHeading>
-                      <StyledButton value='Shop now'/>
+                      <StyledButton> Shop now</StyledButton>
                   </Grid>
                   <Grid item xs={12} md={6}>
-                      <StyledBannerImage src="https://cdni.iconscout.com/illustration/premium/thumb/couple-shopping-online-5300071-4423090.png" alt="" />
+                      <StyledBannerImage src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-review-2763605-2307102.png" alt="" />
                   </Grid>
                 </StyledGridContainer>
               </StyledContainer>
@@ -103,10 +103,10 @@ function Banner() {
                 <StyledGridContainer container>
                   <Grid item xs={12} md={6}>
                       <StyledHeading>Welcome to Crown Shopping</StyledHeading>
-                      <StyledButton value='Shop now'/>
+                      <StyledButton> Shop now</StyledButton>
                   </Grid>
                   <Grid item xs={12} md={6}>
-                      <StyledBannerImage src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-3736818-3122116.png" alt="" />
+                      <StyledBannerImage src="https://cdni.iconscout.com/illustration/premium/thumb/online-shopping-review-2763605-2307102.png" alt="" />
                   </Grid>
                 </StyledGridContainer>
               </StyledContainer>

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-import StyledButton from "../components/basic/StyledButton";
+import StyledButton,{BUTTON_TYPES} from "../components/basic/StyledButton";
 
 const StyledContainer = styled(Container)({
   padding: "100px 0px",
@@ -33,8 +33,8 @@ const SingleProduct = () => {
               />
 
               <StyledCardActions>
-                <StyledButton value="add to cart" />
-                <StyledButton value="buy now" />
+                <StyledButton buttonType={BUTTON_TYPES.inverted}>buy now</StyledButton>
+                <StyledButton buttonType={BUTTON_TYPES.inverted}>add to cart</StyledButton>
               </StyledCardActions>
             </Card>
           </Grid>

@@ -76,7 +76,7 @@ const Navbar = () => {
           <NavLink to="/shop" className="links" onClick={()=>setOpenMenu(!openMenu)}>Shop</NavLink>
           <NavLink to="/contact" className="links" onClick={()=>setOpenMenu(!openMenu)}>contact</NavLink>
           <NavLink to="/cart" className="links" onClick={()=>setOpenMenu(!openMenu)}>cart</NavLink>
-          <NavLink to="/sign-in" className="links" onClick={()=>setOpenMenu(!openMenu)}>signin</NavLink>
+          <NavLink to="/auth" className="links" onClick={()=>setOpenMenu(!openMenu)}>signin</NavLink>
       </StyledMainHeader>
 
       <StyledMobileButtons>

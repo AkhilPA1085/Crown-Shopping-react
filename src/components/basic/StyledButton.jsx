@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Children } from 'react'
 import styled from 'styled-components'
 
-const StyledBtn = styled.button` 
+const StyledBaseButton = styled.button` 
     border:1px solid #0076D5;
     border-radius: 4px;
     padding:10px 15px;
@@ -24,9 +24,43 @@ const StyledBtn = styled.button`
 
 `
 
-function StyledButton({value}) {
+const StyledInvertedButton = styled(StyledBaseButton)` 
+  background-color: ${({theme})=>theme.colors.logo};
+  color:#fff;
+  width: 50%;
+  margin: 0 !important;
+
+  &:hover{
+    background-color: transparent;
+    color: ${({theme})=>theme.colors.logo};
+  }
+`
+
+const StyledGoogleButton = styled(StyledBaseButton)` 
+  background-color: ${({theme})=>theme.colors.logo};
+  color:#fff;
+  width: 50%;
+  margin: 0 !important;
+`
+
+export const BUTTON_TYPES = {
+  base:'base',
+  inverted: 'inverted',
+  google: 'google',
+}
+
+const getButton = (buttonType = BUTTON_TYPES.base) =>(
+  {
+    [BUTTON_TYPES.base]:StyledBaseButton,
+    [BUTTON_TYPES.inverted]:StyledInvertedButton,
+    [BUTTON_TYPES.google]:StyledGoogleButton,
+  }[buttonType]
+)
+
+function StyledButton({buttonType,children,...props}) {
+  const CustomButton = getButton(buttonType)
   return (
-    <StyledBtn>{value}</StyledBtn>
+    <CustomButton {...props}>{children}</CustomButton>
   )
 }
 
