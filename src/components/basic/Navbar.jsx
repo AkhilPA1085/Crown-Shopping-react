@@ -73,10 +73,10 @@ const Navbar = () => {
   return (
     <>
       <StyledMainHeader className={openMenu ? 'active': ''}>
-          <NavLink to="/about" className="links" onClick={()=>setOpenMenu(!openMenu)}>About</NavLink>
-          <NavLink to="/products" className="links" onClick={()=>setOpenMenu(!openMenu)}>products</NavLink>
-          <NavLink to="/cart" className="links" onClick={()=>setOpenMenu(!openMenu)}>cart</NavLink>
+          <NavLink to="/shop" className="links" onClick={()=>setOpenMenu(!openMenu)}>Shop</NavLink>
           <NavLink to="/contact" className="links" onClick={()=>setOpenMenu(!openMenu)}>contact</NavLink>
+          <NavLink to="/cart" className="links" onClick={()=>setOpenMenu(!openMenu)}>cart</NavLink>
+          <NavLink to="/sign-in" className="links" onClick={()=>setOpenMenu(!openMenu)}>signin</NavLink>
       </StyledMainHeader>
 
       <StyledMobileButtons>

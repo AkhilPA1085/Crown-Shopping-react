@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
  }
 
  body{
-    font-family: ui-monospace;
+   font-family: 'Mukta', sans-serif;
     background-color: #F5F8FA;
  }
 

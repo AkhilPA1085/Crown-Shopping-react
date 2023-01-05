@@ -2,14 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import About from "./pages/About";
+import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
 import SingleProduct from "./pages/SingleProduct";
 import { GlobalStyle } from "./styles/GlobalStyle";
+import SignIn from "./pages/SignIn";
 
 function App() {
   const theme = {
@@ -25,15 +25,16 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <GlobalStyle/>
-        <Header/>
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/products" element={<Products/>}/>
-          <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="*" element={<Error/>}/>
+          <Route path="/" element={<Header/>}>
+            <Route index element={<Home/>}/>
+            <Route path="shop" element={<Shop/>}/>
+            <Route path="sign-in" element={<SignIn/>}/>
+            <Route path="singleproduct/:id" element={<SingleProduct/>}/>
+            <Route path="cart" element={<Cart/>}/>
+            <Route path="contact" element={<Contact/>}/>
+            <Route path="*" element={<Error/>}/>
+          </Route>
         </Routes>
         <Footer/>
       </div>

@@ -1,6 +1,6 @@
 import { Container, Grid } from '@mui/material'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 import Navbar from './basic/Navbar'
 
@@ -30,6 +30,7 @@ const StyledMainHeader = styled.header`
 
 const Header = () => {
   return (
+    <>
     <StyledMainHeader>
       <Container>
         <Grid container>
@@ -44,6 +45,9 @@ const Header = () => {
         </Grid>
       </Container>
     </StyledMainHeader>
+
+    <Outlet/>
+    </>
   )
 }
 

@@ -1,11 +1,9 @@
 import { Container,Grid } from '@mui/material';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ProductCard from './basic/ProductCard';
-
 import{products} from '../Data/data';
-
 
 
 const StyledContainer = styled(Container)({
@@ -17,6 +15,7 @@ const StyledLink = styled(Link)({
 })  
 
 function ProductCards() {
+
   return (
     <>
         <StyledContainer>
