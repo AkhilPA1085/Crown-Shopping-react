@@ -1,9 +1,11 @@
 import { Container,Grid } from '@mui/material';
-import React, { useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ProductCard from './basic/ProductCard';
-import{products} from '../Data/data';
+
+import SHOP_DATA from "../Data/shop-data.json"
+import { productContext } from '../contexts/ProductsContext';
 
 
 const StyledContainer = styled(Container)({
@@ -16,14 +18,16 @@ const StyledLink = styled(Link)({
 
 function ProductCards() {
 
+    const {products} = useContext(productContext)
+
   return (
     <>
         <StyledContainer>
             <Grid container spacing={2}>
                 {products.map((product)=>(
-                    <Grid item xs={12} md={2}>
+                    <Grid item xs={12} md={2} key={product.id}>
                         <StyledLink to="/singleproduct/:id">
-                            <ProductCard key={product.id} product={product}/>
+                            <ProductCard product={product}/>
                         </StyledLink>
                     </Grid>
                 ))}

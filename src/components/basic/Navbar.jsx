@@ -1,89 +1,136 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useState, useContext } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import { userContext } from "../../contexts/UserContext";
+import { signOutUser } from "../../utils/firebase/firebaseUtils";
+import ShoppingCartIcon from "./ShoppingCartIcon";
+import CartDropdown from "./CartDropdown";
+import { Menu, MenuItem } from "@mui/material";
+import { cartContext } from "../../contexts/CartContext";
 
 const StyledMainHeader = styled.nav`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 
-    .links{
-        text-transform: capitalize;
-        text-decoration: none;
-        color: inherit;
-    }
+  .links {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: inherit;
+  }
 
-    @media (max-width:${({theme})=>theme.media.tab}){
-      flex-direction: column;
-      justify-content: flex-start;
-      position: absolute;
-      background: #fff;
-      height: 100vh;
-      width: 100vw;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      padding-top: 100px;
-      display: none;
-      transform: translateX(100%);
-      transition: all 2s;
-      z-index: 999;
+  @media (max-width: ${({ theme }) => theme.media.tab}) {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    background: #fff;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding-top: 100px;
+    display: none;
+    transform: translateX(100%);
+    transition: all 2s;
+    z-index: 999;
 
-      &.active{
-        transform: translateX(0%);
-        display: inline-flex;
+    &.active {
+      transform: translateX(0%);
+      display: inline-flex;
 
-        .links{
-          font-size: 18px;
-          font-weight: 700;
-        }
+      .links {
+        font-size: 18px;
+        font-weight: 700;
       }
-      
     }
-    
-`
+  }
+`;
 
 const StyledMobileButtons = styled.div`
   display: none;
 
-  @media(max-width:${({theme})=>theme.media.tab}) {
+  @media (max-width: ${({ theme }) => theme.media.tab}) {
     display: inline-block;
     position: absolute;
     right: 10px;
     left: auto;
     z-index: 999;
 
-    [name='hamburger-icon']{
+    [name="hamburger-icon"] {
       display: block;
       z-index: 999;
       font-size: 34px;
       font-weight: 700;
-      color: ${({theme})=>theme.colors.text};
+      color: ${({ theme }) => theme.colors.text};
     }
-    
   }
-`
-
+`;
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [open, setOpen] = useState(false)
 
+  const { currentUser} = useContext(userContext);
+  const { isCartOpen } = useContext(cartContext);
+
+  const handleClose = () =>{
+    setOpen(false)
+  }
   return (
     <>
-      <StyledMainHeader className={openMenu ? 'active': ''}>
-          <NavLink to="/shop" className="links" onClick={()=>setOpenMenu(!openMenu)}>Shop</NavLink>
-          <NavLink to="/contact" className="links" onClick={()=>setOpenMenu(!openMenu)}>contact</NavLink>
-          <NavLink to="/cart" className="links" onClick={()=>setOpenMenu(!openMenu)}>cart</NavLink>
-          <NavLink to="/auth" className="links" onClick={()=>setOpenMenu(!openMenu)}>signin</NavLink>
+      <StyledMainHeader className={openMenu ? "active" : ""}>
+        <NavLink
+          to="/shop"
+          className="links"
+          onClick={() => setOpenMenu(!openMenu)}
+        >
+          Shop
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className="links"
+          onClick={() => setOpenMenu(!openMenu)}
+        >
+          contact
+        </NavLink>
+
+        {currentUser ? (<span onClick={signOutUser}>SignOut</span>):(
+          <NavLink
+          to="/auth"
+          className="links"
+          onClick={() => setOpenMenu(!openMenu)}
+          >
+            signin
+          </NavLink>
+        )}
+
+        <NavLink
+          className="links"
+          onClick={() => setOpenMenu(!openMenu)}
+        >
+          <ShoppingCartIcon/>
+        </NavLink>
+        
       </StyledMainHeader>
 
+      {isCartOpen &&
+        <CartDropdown/>
+      }
+
+
       <StyledMobileButtons>
-        <MenuIcon name='hamburger-icon' className='hamburger-icon' onClick={()=>setOpenMenu(!openMenu)}/>
+        <MenuIcon
+          name="hamburger-icon"
+          className="hamburger-icon"
+          onClick={() => setOpenMenu(!openMenu)}
+        />
       </StyledMobileButtons>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

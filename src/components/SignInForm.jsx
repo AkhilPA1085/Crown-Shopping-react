@@ -7,6 +7,7 @@ import {
 import StyledButton,{BUTTON_TYPES} from "./basic/StyledButton";
 import StyledFormInputField from "./basic/StyledFormInputField";
 
+
 const StyledCard = styled(Card)({
     boxShadow: "none !important",
     padding: "20px",
@@ -27,6 +28,7 @@ function SignInForm() {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const {email,password} = formFields
 
+
     const resetFields = ()=>{
         setFormFields(defaultFormFields)
     }
@@ -40,8 +42,7 @@ function SignInForm() {
         e.preventDefault();
 
         try{
-            const response = await userSignInWithEmailAndPassword(email,password);
-            // console.log(response)
+            const {user} = await userSignInWithEmailAndPassword(email,password);
             resetFields();
         }catch(error){
             if(error.code){
@@ -54,7 +55,6 @@ function SignInForm() {
 
     const loginWithGoogle = async()=>{
         const {user} = await signInWithGooglePopup()
-        await createUserDocumentFromAuth(user);
     }
 
   return (
