@@ -6,7 +6,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { userContext } from "../../contexts/UserContext";
 import { signOutUser } from "../../utils/firebase/firebaseUtils";
 import ShoppingCartIcon from "./ShoppingCartIcon";
-import CartDropdown from "./CartDropdown";
+import CartDropdown from "../CartDropdown";
 import { Menu, MenuItem } from "@mui/material";
 import { cartContext } from "../../contexts/CartContext";
 
@@ -70,16 +70,16 @@ const StyledMobileButtons = styled.div`
   }
 `;
 
+const StyledNavLink = styled(NavLink)({
+  position:'relative',
+})
+
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [open, setOpen] = useState(false)
 
   const { currentUser} = useContext(userContext);
   const { isCartOpen } = useContext(cartContext);
 
-  const handleClose = () =>{
-    setOpen(false)
-  }
   return (
     <>
       <StyledMainHeader className={openMenu ? "active" : ""}>
@@ -108,18 +108,17 @@ const Navbar = () => {
           </NavLink>
         )}
 
-        <NavLink
+        <StyledNavLink
           className="links"
-          onClick={() => setOpenMenu(!openMenu)}
         >
           <ShoppingCartIcon/>
-        </NavLink>
+          {isCartOpen &&
+            <CartDropdown/>
+          }
+        </StyledNavLink>
+
         
       </StyledMainHeader>
-
-      {isCartOpen &&
-        <CartDropdown/>
-      }
 
 
       <StyledMobileButtons>

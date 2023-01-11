@@ -1,6 +1,7 @@
 import { Card,CardActions,CardContent, CardMedia, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { cartContext } from '../../contexts/CartContext';
 import StyledButton, { BUTTON_TYPES } from './StyledButton';
 
 
@@ -54,6 +55,9 @@ const CartButton = styled(StyledButton)({
 
 
 function ProductCard({product}) {
+  const {addItemToCart} = useContext(cartContext);
+  const addProductToCart = () => addItemToCart(product);
+  
   return (
     <>
     
@@ -69,7 +73,7 @@ function ProductCard({product}) {
                 </StyledCardContent>
 
                 <StyledCardActions>
-                    <CartButton buttonType={BUTTON_TYPES.inverted}>add to cart</CartButton>
+                    <CartButton buttonType={BUTTON_TYPES.inverted} onClick={addProductToCart}>add to cart</CartButton>
                 </StyledCardActions>
             </StyledContentContainer>    
         </StyledCard>

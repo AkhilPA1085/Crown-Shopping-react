@@ -4,7 +4,7 @@ import { Box } from "@mui/system"
 import { useContext, useState } from "react"
 import styled from "styled-components"
 import { cartContext } from "../../contexts/CartContext"
-import CartDropdown from "./CartDropdown"
+import CartDropdown from "../CartDropdown"
 
 
 const StyledBox = styled.div` 
@@ -13,17 +13,19 @@ const StyledBox = styled.div`
 
 
 function ShoppingCartIcon() {
-    const {isCartOpen,setIsCartOpen} = useContext(cartContext);
+    const {isCartOpen,setIsCartOpen,cartItems,cartCounts} = useContext(cartContext);
     const handleToggler = () =>{
         setIsCartOpen(!isCartOpen)
     }
+
+    const cartTotalItems = cartItems.length;
   return (
     <>
-        <StyledBox onClick={handleToggler}>
-            <Badge badgeContent={4} color="primary">
+        <Box onClick={handleToggler}>
+            <Badge badgeContent={cartTotalItems} color="primary">
                 <ShoppingCart color="action"/>
             </Badge>
-        </StyledBox>
+        </Box>
     </>
   )
 }

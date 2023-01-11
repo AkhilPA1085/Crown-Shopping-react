@@ -26,7 +26,7 @@ function ProductCards() {
             <Grid container spacing={2}>
                 {products.map((product)=>(
                     <Grid item xs={12} md={2} key={product.id}>
-                        <StyledLink to="/singleproduct/:id">
+                        <StyledLink>
                             <ProductCard product={product}/>
                         </StyledLink>
                     </Grid>

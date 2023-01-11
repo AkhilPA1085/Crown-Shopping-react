@@ -18,7 +18,7 @@ function App() {
       text: "#7F8D99",
     },
 
-    media:{mobile:"480px",tab:"992px"}
+    media:{mobile:"480px",tab:"992px",lg:"1400px"}
   }
 
   return (
